@@ -7,7 +7,9 @@
     <title>Predict Admit - Your Future Simplified</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Patrick+Hand&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -41,18 +43,92 @@
             Start Application &rarr;
         </a>
 
-        <!-- Floating Card (Dynamic Element) -->
-        <div class="progress-card">
-            <div class="card-header">
-                <span class="card-title">Application Progress</span>
-                <span class="card-icon">📝</span>
-            </div>
-            <div class="progress-container">
-                <div class="progress-bar"></div>
-            </div>
-            <div class="card-footer">
-                <span>Personal Statement</span>
-                <span class="percentage">35%</span>
+        <!-- Student Carousel (Replaces Floating Card) -->
+        <div class="student-carousel-container">
+            <div class="student-track">
+                <!-- Set 1 -->
+                <div class="student-card">
+                    <div class="student-face" style="background-color: #FFD580;">S</div>
+                    <div class="student-info">
+                        <span class="student-name">Sarah D.</span>
+                        <span class="student-uni">Stanford '28</span>
+                    </div>
+                    <div class="student-stats">
+                        <span>3.9 UW</span> | <span>2 Research Papers</span>
+                    </div>
+                </div>
+                <div class="student-card">
+                    <div class="student-face" style="background-color: #FFBE0B;">D</div>
+                    <div class="student-info">
+                        <span class="student-name">David K.</span>
+                        <span class="student-uni">MIT '28</span>
+                    </div>
+                    <div class="student-stats">
+                        <span>4.0 UW</span> | <span>Math Olympiad</span>
+                    </div>
+                </div>
+                <div class="student-card">
+                    <div class="student-face" style="background-color: #2A6DF5; color: white;">J</div>
+                    <div class="student-info">
+                        <span class="student-name">Jessica L.</span>
+                        <span class="student-uni">UCLA '28</span>
+                    </div>
+                    <div class="student-stats">
+                        <span>3.8 UW</span> | <span>Varsity Swim</span>
+                    </div>
+                </div>
+                <div class="student-card">
+                    <div class="student-face" style="background-color: #10B981; color: white;">M</div>
+                    <div class="student-info">
+                        <span class="student-name">Michael R.</span>
+                        <span class="student-uni">Yale '28</span>
+                    </div>
+                    <div class="student-stats">
+                        <span>3.95 UW</span> | <span>Debate Captain</span>
+                    </div>
+                </div>
+
+                <!-- Set 2 (Duplicate for seamless scroll) -->
+                <div class="student-card">
+                    <div class="student-face" style="background-color: #FFD580;">S</div>
+                    <div class="student-info">
+                        <span class="student-name">Sarah D.</span>
+                        <span class="student-uni">Stanford '28</span>
+                    </div>
+                    <div class="student-stats">
+                        <span>3.9 UW</span> | <span>2 Research Papers</span>
+                    </div>
+                </div>
+                <div class="student-card">
+                    <div class="student-face" style="background-color: #FFBE0B;">D</div>
+                    <div class="student-info">
+                        <span class="student-name">David K.</span>
+                        <span class="student-uni">MIT '28</span>
+                    </div>
+                    <div class="student-stats">
+                        <span>4.0 UW</span> | <span>Math Olympiad</span>
+                    </div>
+                </div>
+                <div class="student-card">
+                    <div class="student-face" style="background-color: #2A6DF5; color: white;">J</div>
+                    <div class="student-info">
+                        <span class="student-name">Jessica L.</span>
+                        <span class="student-uni">UCLA '28</span>
+                    </div>
+                    <div class="student-stats">
+                        <span>3.8 UW</span> | <span>Varsity Swim</span>
+                    </div>
+                </div>
+                <div class="student-card">
+                    <div class="student-face" style="background-color: #10B981; color: white;">M</div>
+                    <div class="student-info">
+                        <span class="student-name">Michael R.</span>
+                        <span class="student-uni">Yale '28</span>
+                    </div>
+                    <div class="student-stats">
+                        <span>3.95 UW</span> | <span>Debate Captain</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -115,13 +191,105 @@
 
             <!-- Right: Dynamic Circular Targets Chart -->
             <div class="visual-chart-container">
+                <!-- Tooltips -->
+                <div id="tooltip-academics" class="chart-tooltip tooltip-top">
+                    <h5>Academics</h5>
+                    <p class="tooltip-meta">45% of profile for UCs, 60-70% for most privates.</p>
+                    <div class="tooltip-lists">
+                        <div>
+                            <h6>Common Path</h6>
+                            <ul>
+                                <li>3.3-3.7 UW GPA</li>
+                                <li>3-7 AP Classes</li>
+                                <li>3-5 Honors Courses</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h6>Elite Path</h6>
+                            <ul>
+                                <li>3.6-4.0 UW GPA</li>
+                                <li>8-15 AP Classes</li>
+                                <li>5-10 Honors Courses</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tooltip-activities" class="chart-tooltip tooltip-right">
+                    <h5>Activities</h5>
+                    <p class="tooltip-meta">~30% importance. Quality over quantity.</p>
+                    <div class="tooltip-lists">
+                        <div>
+                            <h6>Common Path</h6>
+                            <ul>
+                                <li>School Clubs</li>
+                                <li>Varsity Sports</li>
+                                <li>Key Club / Volunteer</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h6>Elite Path</h6>
+                            <ul>
+                                <li>National Awards</li>
+                                <li>Independent Research</li>
+                                <li>Founder/Leadership</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tooltip-essays" class="chart-tooltip tooltip-bottom">
+                    <h5>Essays</h5>
+                    <p class="tooltip-meta">20-25% importance. The "Soul" of the app.</p>
+                    <div class="tooltip-lists">
+                        <div>
+                            <h6>Common Path</h6>
+                            <ul>
+                                <li>Growth narrative</li>
+                                <li>Overcoming hurdles</li>
+                                <li>Standard topics</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h6>Elite Path</h6>
+                            <ul>
+                                <li>Unique voice/style</li>
+                                <li>Deeply personal</li>
+                                <li>Creative risk-taking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tooltip-profile" class="chart-tooltip tooltip-left">
+                    <h5>Profile</h5>
+                    <p class="tooltip-meta">10-15% context. Demographics & circumstances.</p>
+                    <div class="tooltip-lists">
+                        <div>
+                            <h6>Common Path</h6>
+                            <ul>
+                                <li>In-state applicant</li>
+                                <li>Standard background</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h6>Elite Path</h6>
+                            <ul>
+                                <li>Underrepresented</li>
+                                <li>First-generation</li>
+                                <li>Unique life story</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="circular-chart-wrapper">
                     <svg class="circular-chart" viewBox="0 0 400 400">
-                        <!-- Concentric Rings -->
-                        <circle cx="200" cy="200" r="50" class="chart-ring" />
-                        <circle cx="200" cy="200" r="100" class="chart-ring" />
-                        <circle cx="200" cy="200" r="150" class="chart-ring" />
-                        <circle cx="200" cy="200" r="190" class="chart-ring" />
+                        <!-- Concentric Rings (Independent Animations) -->
+                        <circle cx="200" cy="200" r="50" class="chart-ring ring-1" />
+                        <circle cx="200" cy="200" r="100" class="chart-ring ring-2" />
+                        <circle cx="200" cy="200" r="150" class="chart-ring ring-3" />
+                        <circle cx="200" cy="200" r="190" class="chart-ring ring-4" />
 
                         <!-- Axis Lines -->
                         <line x1="200" y1="10" x2="200" y2="390" class="chart-axis" />
@@ -130,14 +298,59 @@
                         <!-- Data Polygon -->
                         <polygon points="200,50 350,200 200,340 80,200" class="chart-data-poly" />
 
-                        <!-- Connecting Points (Targets) -->
-                        <circle cx="200" cy="50" r="6" class="chart-point" />
-                        <circle cx="350" cy="200" r="6" class="chart-point" />
-                        <circle cx="200" cy="340" r="6" class="chart-point" />
-                        <circle cx="80" cy="200" r="6" class="chart-point" />
+                        <!-- Connecting Points (Color Coded Targets) -->
+                        <!-- Top: Academics -->
+                        <circle cx="200" cy="50" r="8" class="chart-point point-academics"
+                            data-tooltip="tooltip-academics" />
+                        <text x="200" y="35" text-anchor="middle" class="params-label">Academics</text>
+
+                        <!-- Right: Extracurriculars -->
+                        <circle cx="350" cy="200" r="8" class="chart-point point-extra"
+                            data-tooltip="tooltip-activities" />
+                        <text x="360" y="205" text-anchor="start" class="params-label">Activities</text>
+
+                        <!-- Bottom: Essays -->
+                        <circle cx="200" cy="340" r="8" class="chart-point point-essays"
+                            data-tooltip="tooltip-essays" />
+                        <text x="200" y="370" text-anchor="middle" class="params-label">Essays</text>
+
+                        <!-- Left: Demographics/Profile -->
+                        <circle cx="80" cy="200" r="8" class="chart-point point-profile"
+                            data-tooltip="tooltip-profile" />
+                        <text x="70" y="205" text-anchor="end" class="params-label">Profile</text>
                     </svg>
                 </div>
             </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const points = document.querySelectorAll('.chart-point');
+                    const tooltips = document.querySelectorAll('.chart-tooltip');
+
+                    points.forEach(point => {
+                        point.addEventListener('mouseenter', () => {
+                            // Hide all tooltips first
+                            tooltips.forEach(t => t.classList.remove('show'));
+                            points.forEach(p => p.classList.remove('active'));
+
+                            // Activate current
+                            point.classList.add('active');
+                            const tooltipId = point.getAttribute('data-tooltip');
+                            const tooltip = document.getElementById(tooltipId);
+                            if (tooltip) tooltip.classList.add('show');
+                        });
+
+                        // We can leave the tooltip there until another is hovered,
+                        // or remove it on mouseleave. User asked "pop up appears only while point is hovered over"
+                        point.addEventListener('mouseleave', () => {
+                            point.classList.remove('active');
+                            const tooltipId = point.getAttribute('data-tooltip');
+                            const tooltip = document.getElementById(tooltipId);
+                            if (tooltip) tooltip.classList.remove('show');
+                        });
+                    });
+                });
+            </script>
         </section>
 
     </main>
