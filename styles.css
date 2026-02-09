@@ -1,0 +1,494 @@
+:root {
+  --primary-blue: #0A2540;
+  --accent-blue: #2A6DF5;
+  --highlight-yellow: #FFD580;
+  --text-dark: #0A2540;
+  --text-gray: #425466;
+  --bg-grid-color: #E6E6E6;
+  --paper-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --paper-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #fff;
+  background-image:
+    linear-gradient(var(--bg-grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: var(--primary-blue);
+}
+
+.brand-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #2A6DF5;
+  border-radius: 50%;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-gray);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--primary-blue);
+}
+
+.btn-login {
+  font-weight: 700 !important;
+  color: var(--primary-blue) !important;
+}
+
+/* Hero Section */
+.hero {
+  /* Removed flex: 1 to allow content below to flow naturally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1rem 4rem 1rem;
+  /* Added padding */
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: -0.04em;
+  color: var(--text-dark);
+}
+
+.hero-highlight {
+  color: #1a4f8b;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+}
+
+.hero-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  width: 100%;
+  height: 16px;
+  background-color: var(--highlight-yellow);
+  z-index: -1;
+  opacity: 0.6;
+  border-radius: 4px;
+}
+
+/* Hero Pop Effect */
+.hero-highlight:hover {
+  transform: scale(1.05) translateY(-2px);
+  text-shadow: 0 4px 12px rgba(255, 213, 128, 0.4);
+}
+
+
+.hero-sub {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-gray);
+  max-width: 600px;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 37, 64, 0.3);
+}
+
+/* Floating Card (Original) */
+.progress-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  width: 420px;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  /* Spacing for new section */
+  text-align: left;
+  position: relative;
+  animation: floatUp 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  border-left: 6px solid #FFBE0B;
+  z-index: 10;
+}
+
+@keyframes floatUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.card-icon {
+  font-size: 1.5rem;
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #F0F2F5;
+  height: 8px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 35%;
+  height: 100%;
+  background-color: #2A6DF5;
+  border-radius: 4px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.percentage {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+
+/* --- NEW SECTION: Features Split --- */
+.features-split {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding: 2rem 4rem 6rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  flex-wrap: wrap;
+  /* Responsive */
+}
+
+/* Product Options (Left) */
+.product-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Paper Stack & Peek Interaction */
+.paper-stack {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  /* Fixed height for consistency */
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+/* The card visible on top */
+.product-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--paper-shadow);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* The hidden stats layer */
+.stats-layer {
+  background: #FAFBFC;
+  /* Slightly off-white/gray */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 1px dashed #D1D5DB;
+  /* Dashed line for 'draft/stats' feel */
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  /* Hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+.paper-stack:hover .product-card {
+  transform: translate(20px, -20px) rotate(-1deg);
+  /* Shift up/right and slight tilt */
+  box-shadow: var(--paper-shadow-hover);
+}
+
+.paper-stack:hover .stats-layer {
+  opacity: 1;
+  /* Reveal background layer */
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.product-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-blue);
+}
+
+.product-card p {
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.feature-list {
+  list-style: none;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+.feature-list li {
+  margin-bottom: 0.25rem;
+}
+
+/* Tags */
+.tag-free {
+  background: #E3F2FD;
+  color: #1565C0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tag-paid {
+  background: #FFF3E0;
+  color: #E65100;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Stats Visualization inside Peek */
+.stats-content {
+  width: 100%;
+}
+
+.stats-content h4 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #6B7280;
+  margin-bottom: 10px;
+  letter-spacing: 0.05em;
+}
+
+.mini-chart-bar {
+  height: 8px;
+  background: #E5E7EB;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mini-chart-bar::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: var(--width, 50%);
+  background: var(--accent-blue);
+}
+
+/* Just using style attr for width in HTML for simplicity */
+
+
+/* CHART SECTION (Right) */
+.visual-chart-container {
+  flex: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.circular-chart-wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  animation: float 6s ease-in-out infinite;
+  /* Floating container */
+}
+
+.circular-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-ring {
+  fill: none;
+  stroke: #E5E7EB;
+  stroke-width: 1.5;
+}
+
+.chart-axis {
+  stroke: #F3F4F6;
+  stroke-width: 1;
+}
+
+.chart-data-poly {
+  fill: rgba(42, 109, 245, 0.1);
+  stroke: var(--accent-blue);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  /* Optional: Animate the shape */
+  animation: pulsePoly 4s ease-in-out infinite alternate;
+}
+
+.chart-point {
+  fill: white;
+  stroke: var(--accent-blue);
+  stroke-width: 3;
+  transition: transform 0.3s;
+}
+
+.chart-point:hover {
+  transform: scale(1.5);
+  cursor: crosshair;
+}
+
+/* Dynamic Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulsePoly {
+  0% {
+    fill-opacity: 0.1;
+  }
+
+  100% {
+    fill-opacity: 0.2;
+  }
+}
+
+/* Mobile responsive tweak */
+@media (max-width: 768px) {
+  .features-split {
+    flex-direction: column;
+  }
+
+  .circular-chart-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+}
